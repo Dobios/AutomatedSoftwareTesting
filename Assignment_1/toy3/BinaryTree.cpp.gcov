@@ -1,0 +1,91 @@
+        -:    0:Source:BinaryTree.cpp
+        -:    0:Graph:BinaryTree.gcno
+        -:    0:Data:BinaryTree.gcda
+        -:    0:Runs:1
+        -:    1:#include "BinaryTree.h"
+        -:    2:
+        1:    3:BinaryTree::Node::Node(int x) : value(x) {}
+        -:    4:
+        1:    5:void BinaryTree::add(int value) {
+        1:    6:    Node *new_node = new Node(value);
+        1:    7:    if (m_root == nullptr) {
+        1:    8:        m_root = new_node;
+        1:    9:        return;
+        -:   10:    }
+        -:   11:
+    #####:   12:    Node *node = m_root;
+        -:   13:
+        -:   14:    while (true) {
+    #####:   15:        if (value <= node->value) {
+    #####:   16:            if (node->left == nullptr) {
+    #####:   17:                node->left = new_node;
+    #####:   18:                return;
+        -:   19:            }
+    #####:   20:            node = node->left;
+        -:   21:        } else {
+    #####:   22:            if (node->right == nullptr) {
+    #####:   23:                node->right = new_node;
+    #####:   24:                return;
+        -:   25:            }
+    #####:   26:            node = node->right;
+        -:   27:        }
+        -:   28:    }
+        -:   29:}
+        -:   30:
+    #####:   31:BinaryTree::Node *BinaryTree::remove_smallest(Node **root_ptr) {
+    #####:   32:    Node **parent_slot = root_ptr;
+    #####:   33:    Node *node = *root_ptr;
+        -:   34:
+    #####:   35:    while (node->left != nullptr) {
+    #####:   36:        parent_slot = &node->left;
+    #####:   37:        node = *parent_slot;
+        -:   38:    }
+        -:   39:
+    #####:   40:    *parent_slot = nullptr;
+    #####:   41:    return node;
+        -:   42:}
+        -:   43:
+    #####:   44:BinaryTree::Node *BinaryTree::remove_largest(Node **root_ptr) {
+    #####:   45:    Node **parent_slot = root_ptr;
+    #####:   46:    Node *node = *root_ptr;
+        -:   47:
+    #####:   48:    while (node->right != nullptr) {
+    #####:   49:        parent_slot = &node->right;
+    #####:   50:        node = *parent_slot;
+        -:   51:    }
+        -:   52:
+    #####:   53:    *parent_slot = nullptr;
+    #####:   54:    return node;
+        -:   55:}
+        -:   56:
+    #####:   57:bool BinaryTree::remove(int value) {
+    #####:   58:    Node **parent_slot = &m_root;
+    #####:   59:    Node *node = m_root;
+        -:   60:
+    #####:   61:    while (node != nullptr) {
+    #####:   62:        if (value == node->value) {
+    #####:   63:            Node *replacement = nullptr;
+        -:   64:
+    #####:   65:            if (node->right != nullptr) {
+    #####:   66:                replacement = remove_smallest(&node->right);
+    #####:   67:            } else if (node->left != nullptr) {
+    #####:   68:                replacement = remove_largest(&node->left);
+        -:   69:            }
+        -:   70:
+    #####:   71:            if (replacement != nullptr) {
+    #####:   72:                replacement->left = node->left;
+    #####:   73:                replacement->right = node->right;
+        -:   74:            }
+    #####:   75:            *parent_slot = replacement;
+    #####:   76:            delete node;
+    #####:   77:            return true;
+    #####:   78:        } else if (value <= node->value) {
+    #####:   79:            parent_slot = &node->left;
+        -:   80:        } else {
+    #####:   81:            parent_slot = &node->right;
+        -:   82:        }
+    #####:   83:        node = *parent_slot;
+        -:   84:    }
+        -:   85:
+    #####:   86:    return false;
+        -:   87:}

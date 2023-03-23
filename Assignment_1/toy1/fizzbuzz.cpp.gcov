@@ -1,0 +1,19 @@
+        -:    0:Source:fizzbuzz.cpp
+        -:    0:Graph:fizzbuzz.gcno
+        -:    0:Data:fizzbuzz.gcda
+        -:    0:Runs:1
+        -:    1:#include "fizzbuzz.h"
+        -:    2:
+        3:    3:std::string fizzbuzz(unsigned n) {
+        6:    4:    std::string out = "";
+        3:    5:    if ((n % 3) == 0) {
+        1:    6:        out += "Fizz";
+        -:    7:    }
+        3:    8:    if ((n % 5) == 0) {
+        1:    9:        out += "Buzz";
+        -:   10:    }
+        3:   11:    if (out.empty()) {
+        1:   12:        return std::to_string(n);
+        -:   13:    }
+        2:   14:    return out;
+        -:   15:}

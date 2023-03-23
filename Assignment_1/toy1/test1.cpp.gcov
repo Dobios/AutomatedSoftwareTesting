@@ -1,0 +1,39 @@
+        -:    0:Source:test1.cpp
+        -:    0:Graph:test1.gcno
+        -:    0:Data:test1.gcda
+        -:    0:Runs:1
+        -:    0:Source is newer than graph
+        -:    1:#include "fizzbuzz.h"
+        -:    2:#include <iostream>
+        -:    3:#include <functional>
+        -:    4:
+        3:    5:bool test_fizzbuzz(unsigned in, std::string out) {
+        6:    6:    std::string res = fizzbuzz(in);
+        3:    7:    if (res != out) {
+    #####:    8:        std::cout << in << ": expected=" << out << ", actual=" << res << std::endl;
+    #####:    9:        return false;
+        -:   10:    }
+        3:   11:    return true;
+        -:   12:}
+        -:   13:
+        -:   14:// TODO add two (!) more test cases to achieve 100% line coverage in fizzbuzz.cpp
+        -:   15:// Q: Which output scenario are we missing in our tests despite 100% line coverage?
+        -:   16:// A: The scenario where in % 3 == 0 && in % 5 == 0 isn't covered
+        -:   17:// Q: Name a coverage metric that would be better suited for this, i.e. will not produce
+        -:   18://    full coverage unless we hit all scenarios (all numeric strings are the same scenario).
+        -:   19:// A: Path coverage 
+        -:   20:std::function<bool()> tests[] = {
+        1:   21:    [] () { return test_fizzbuzz(1, "1"); },
+        1:   22:    [] () { return test_fizzbuzz(3, "Fizz"); },
+        1:   23:    [] () { return test_fizzbuzz(5, "Buzz"); }
+        -:   24:};
+        -:   25:
+        1:   26:int main() {
+        1:   27:    unsigned ran = 0, passed = 0;
+        4:   28:    for (auto test : tests) {
+        3:   29:        ran++;
+        3:   30:        passed += test();
+        -:   31:    }
+        1:   32:    std::cout << "Passed " << passed << "/" << ran << " test cases!" << std::endl;
+        1:   33:    return 0;
+        -:   34:}
