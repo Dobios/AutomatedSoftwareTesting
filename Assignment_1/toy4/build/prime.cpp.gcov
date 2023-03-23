@@ -1,0 +1,40 @@
+        -:    0:Source:../prime.cpp
+        -:    0:Graph:prime.gcno
+        -:    0:Data:prime.gcda
+        -:    0:Runs:1
+        -:    1:#include "prime.h"
+        -:    2:
+function _Z8is_primei called 12 returned 100% blocks executed 100%
+       12:    3:bool is_prime(int n) {
+       12:    4:    if (n == 2 || n == 3) {
+branch  0 taken 92% (fallthrough)
+branch  1 taken 8%
+branch  2 taken 9% (fallthrough)
+branch  3 taken 91%
+        2:    5:        return true;
+        -:    6:    }
+        -:    7:
+       10:    8:    if (n <= 1 || (n % 2 == 0) || (n % 3 == 0)) {
+branch  0 taken 90% (fallthrough)
+branch  1 taken 10%
+branch  2 taken 78% (fallthrough)
+branch  3 taken 22%
+branch  4 taken 14% (fallthrough)
+branch  5 taken 86%
+        4:    9:        return false;
+        -:   10:    }
+        -:   11:
+        7:   12:    for (int i = 5; i * i <= n; i += 6) {
+branch  0 taken 43% (fallthrough)
+branch  1 taken 57%
+        3:   13:        if ((n % i == 0) || (n % (i + 2) == 0)) {
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        2:   14:            return false;
+        -:   15:        }
+        -:   16:    }
+        -:   17:
+        4:   18:    return true;
+        -:   19:}
