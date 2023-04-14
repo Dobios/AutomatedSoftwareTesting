@@ -1,0 +1,16 @@
+Q1. Why does KLEE need uClibc and the POSIX environment model ?
+A1. KLEE requires POSIX in order to run programs that use external code such as from C standard library. To do so, we must enable the KLEE POSIX runtime which is built on uClibc, thus meaning that we also require uClibc.  
+
+Q2.What are the difficulties of testing real software and why do they use WLLVM ?
+A2. The difficulties in testing real programs with KLEE is that they must first be compiled into a an llvm bitcode file, which might be tricky depending on the software build system that is used.
+A solution to this is to use WLLVM, which can extract bitcode from a build product directly, thus circumventing the problem.  
+
+Q3. What is the difference between testing a simple program like get_sign.c and testing real software like Coreutils.  
+A3. When testing a simple program like get_sign.c, we don't need to worry about the posix runtime or uclibc, we just need to get the llvm bitcode directly using a c compiler, and then naïvely running KLEE on it.
+This differs from real software like Coreutils, because we need to extract the bitcode from a more complex build and run klee using uclibc and the posix runtime, which requires some work to do.  
+
+Q4. Why do they need the test environment and sandbox ?
+A4. They need these two elements in order to ensure that the experiments remain deterministic.  
+
+Q5. Why does your configuration performs better than before ?
+A5. My understanding is that the random path selection allows for a slighty better path exploration technique, and the batching also helps with improving our path exploration.  

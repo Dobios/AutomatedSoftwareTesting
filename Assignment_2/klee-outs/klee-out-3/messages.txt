@@ -1,0 +1,11 @@
+KLEE: Using Z3 solver backend
+KLEE: ERROR: libc/string/memcpy.c:29: memory error: out of bound pointer
+KLEE: NOTE: now ignoring this error at this location
+KLEE: increased time budget from 5.000000 to 5.652663
+
+KLEE: ERROR: runtime/POSIX/fd.c:379: check_memory_access: memory error
+KLEE: NOTE: now ignoring this error at this location
+KLEE: increased time budget from 5.652663 to 6.510595
+
+KLEE: HaltTimer invoked
+KLEE: halting execution, dumping remaining states

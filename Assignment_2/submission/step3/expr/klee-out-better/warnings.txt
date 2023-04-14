@@ -1,0 +1,60 @@
+KLEE: WARNING: undefined reference to function: __ctype_get_mb_cur_max
+KLEE: WARNING: undefined reference to function: pthread_mutex_destroy
+KLEE: WARNING: undefined reference to function: pthread_mutex_init
+KLEE: WARNING: undefined reference to function: pthread_mutex_lock
+KLEE: WARNING: undefined reference to function: pthread_mutex_unlock
+KLEE: WARNING: undefined reference to function: pthread_mutexattr_gettype
+KLEE: WARNING: undefined reference to function: thrd_exit
+KLEE: WARNING: executable has module level assembly (ignoring)
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 94035476247424) at runtime/POSIX/fd.c:1007 10
+KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Alignment of memory from call "realloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: calling external: vprintf(94035476184384, 94035487694176) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: calling close_stdout with extra arguments.
+KLEE: WARNING ONCE: calling external: __ctype_get_mb_cur_max() at ../lib/quotearg.c:262 36
+KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: calling external: pthread_mutex_init(94035472000648, 0) at ../lib/regcomp.c:733 7
+KLEE: WARNING ONCE: calling external: printf(94035476184576, 94035470415536, 94035470415536) at ../src/expr.c:252 7
+KLEE: WARNING ONCE: calling external: pthread_mutex_destroy(94035489470312) at ../lib/regcomp.c:755 7
+KLEE: WARNING ONCE: calling external: pthread_mutex_lock(94035496152680) at ../lib/regexec.c:385 3
+KLEE: WARNING ONCE: calling external: pthread_mutex_unlock(94035496152680) at ../lib/regexec.c:449 3
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+
+KLEE: WARNING: write: write() ignores bytes.
+

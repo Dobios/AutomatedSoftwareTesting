@@ -1,0 +1,22 @@
+./build/bin/klee --simplify-sym-indices --max-memory=1000 --disable-inlining --optimize --libc=uclibc --posix-runtime --external-calls=all --env-file=test.env --run-in-dir=/tmp/sandbox --max-sym-array-size=4096 --max-solver-time=30s --max-time=3min --only-output-states-covering-new --write-no-tests --search=random-path --use-batching-search ./coreutils/obj-llvm/src/dd.bc --sym-args 0 3 10 --sym-files 1 8 --sym-stdin 8 --sym-stdout
+PID: 839123
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2023-04-14 22:54:12
+BEGIN searcher description
+<BatchingSearcher> timeBudget: 5.000000e+00s, instructionBudget: 10000, baseSearcher:
+RandomPathSearcher
+</BatchingSearcher>
+END searcher description
+Finished: 2023-04-14 22:57:13
+Elapsed: 00:03:01
+KLEE: done: explored paths = 32522
+KLEE: done: avg. constructs per query = 40
+KLEE: done: total queries = 10229
+KLEE: done: valid queries = 6593
+KLEE: done: invalid queries = 3636
+KLEE: done: query cex = 10229
+
+KLEE: done: total instructions = 50841034
+KLEE: done: completed paths = 1584
+KLEE: done: partially completed paths = 30938
+KLEE: done: generated tests = 0
