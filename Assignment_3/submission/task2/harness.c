@@ -1,6 +1,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>  
+#include <stdlib.h>
+#include <assert.h>
 
 #include "library.h"
 
@@ -34,12 +36,17 @@ int main(int argc, char* argv[]) {
             int a, b = 0; 
 
             // Read from the file 
-            fgets(buffer, INT_SIZE, file);
-            a = *((int*)buffer); // Amazing reinterpret cast ;)
-            fgets(buffer, INT_SIZE, file); 
-            b = *((int*)buffer);
+            fgets(buffer, INT_SIZE+1, file);
+            a = atoi(buffer);
 
-            printf("%d\n", lib_mul(a, b));
+            // Clear buffer
+            memset(buffer, 0, SIZE);
+
+            // Read b
+            fgets(buffer, INT_SIZE+1, file); 
+            b = atoi(buffer);
+
+            printf("a = %d, b = %d, a * b = %d\n", a, b, lib_mul(a, b));
         } else {
             printf("Usage: %s mul|echo <input_filename>\n", argv[0]);
         }
