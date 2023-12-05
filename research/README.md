@@ -1,7 +1,7 @@
 # Grammar-based exhaustive testing of JSON validators   
 
 The goal of this project is to extend the E.T. prototype to also test json validators.    
-> Note this repository __only contains the code that specifically pertains to JSON exhaustive testing__ and __does not__ include any of the E.T. prototype code, as said code is not yet available in open-source.  
+> Note this repository __only contains the code that specifically pertains to JSON exhaustive testing__ and __does not__ include any of the E.T. prototype code, as said code is not yet available in open-source.  __THE FOLLOWING WILL ONLY WORK ONCE INTEGRATED INTO E.T.__  
 
 For this, we will be testing two json validators that have Command Line Interfaces (CLIs):  
  1. [`jsonlint`](https://github.com/prantlf/jsonlint), which is a popular online json validation tool that also has a cli.  
